@@ -1,5 +1,5 @@
 package main
 
 type Operation interface {
-	Eval() bool
+	Eval(attr *Attributes) bool
 }

@@ -7,13 +7,13 @@ type Constant interface {
 type True struct {
 }
 
-func (t True) Eval() bool {
+func (t True) Eval(attr *Attributes) bool {
 	return true
 }
 
 type False struct {
 }
 
-func (f False) Eval() bool {
+func (f False) Eval(attr *Attributes) bool {
 	return false
 }

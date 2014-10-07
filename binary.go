@@ -20,26 +20,26 @@ type Xor struct {
 	Binary
 }
 
-func (o Or) Eval() bool {
+func (o Or) Eval(attr *Attributes) bool {
 	res := false
 	for _, n := range o.nodes {
-		res = res || n.Eval()
+		res = res || n.Eval(attr)
 	}
 	return res
 }
 
-func (a And) Eval() bool {
+func (a And) Eval(attr *Attributes) bool {
 	res := true
 	for _, n := range a.nodes {
-		res = res && n.Eval()
+		res = res && n.Eval(attr)
 	}
 	return res
 }
 
-func (x Xor) Eval() bool {
+func (x Xor) Eval(attr *Attributes) bool {
 	res := true
 	for _, n := range x.nodes {
-		res = (res || n.Eval()) && !(n.Eval() && res)
+		res = (res || n.Eval(attr)) && !(n.Eval(attr) && res)
 	}
 	return res
 }

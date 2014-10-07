@@ -12,6 +12,6 @@ type Not struct {
 	Unary
 }
 
-func (n Not) Eval() bool {
-	return !n.node.Eval()
+func (n Not) Eval(attr *Attributes) bool {
+	return !n.node.Eval(attr)
 }
