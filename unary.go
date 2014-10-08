@@ -3,11 +3,7 @@ package main
 import "fmt"
 
 type Unary struct {
-	node Operation
-}
-
-func (u Unary) Node(n Operation) {
-	u.node = n
+	Node Operation
 }
 
 type Not struct {
@@ -15,9 +11,9 @@ type Not struct {
 }
 
 func (n Not) Eval(attr *Attributes) bool {
-	return !n.node.Eval(attr)
+	return !n.Node.Eval(attr)
 }
 
 func (n Not) Print() string {
-	return fmt.Sprintf("!%s", n.node.Print())
+	return fmt.Sprintf("!%s", n.Node.Print())
 }

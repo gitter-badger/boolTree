@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type Leaf struct {
 	Key   string
 	Value string
@@ -17,5 +19,5 @@ func (l Leaf) Eval(attr *Attributes) bool {
 }
 
 func (l Leaf) Print() string {
-	return ""
+	return "(" + fmt.Sprintf("f(%s) == %s", l.Key, l.Value) + ")"
 }
