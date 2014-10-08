@@ -1,5 +1,7 @@
 package main
 
+import "strings"
+
 type Binary struct {
 	nodes []Operation
 }
@@ -26,6 +28,15 @@ func (o Or) Eval(attr *Attributes) bool {
 		res = res || n.Eval(attr)
 	}
 	return res
+}
+
+func (o Or) Print() string {
+	res := make([]string, len(o.nodes))
+	for _, n := range o.nodes {
+		res = append(res, n.Print())
+	}
+	resString := strings.Join(res, "||")
+	return resString
 }
 
 func (a And) Eval(attr *Attributes) bool {

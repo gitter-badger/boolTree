@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type Unary struct {
 	node Operation
 }
@@ -14,4 +16,8 @@ type Not struct {
 
 func (n Not) Eval(attr *Attributes) bool {
 	return !n.node.Eval(attr)
+}
+
+func (n Not) Print() string {
+	return fmt.Sprintf("!%s", n.node.Print())
 }
