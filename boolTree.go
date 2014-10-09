@@ -14,8 +14,8 @@ func main() {
 	attr.Values["tag"][0] = "news"
 	attr.Values["tag"][1] = "mobile"
 
-	left := Leaf{Key: "tag", Value: "news"}
-	right := Leaf{Key: "tag", Value: "mobile"}
+	left := Leaf{Key: "tag", Value: "news", EvalFunc: IsIn}
+	right := Leaf{Key: "tag", Value: "mobile", EvalFunc: IsIn}
 	andNode := And{}
 	andNode.Nodes = []Operation{left, right}
 	fmt.Printf("%s\n", andNode.Print())
